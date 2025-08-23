@@ -1,0 +1,576 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka+One:wght@400&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: #F8F9FA;
+}
+
+.font-nunito {
+  font-family: 'Nunito', sans-serif;
+}
+
+.font-fredoka {
+  font-family: 'Fredoka One', cursive;
+}
+
+/* Custom colors */
+.text-orange-primary {
+  color: #FF6B00;
+}
+
+.bg-orange-primary {
+  background-color: #FF6B00;
+}
+
+.text-blue-primary {
+  color: #00A6A6;
+}
+
+.bg-blue-primary {
+  background-color: #00A6A6;
+}
+
+.bg-yellow-support {
+  background-color: #FFF4D4;
+}
+
+.text-gray-primary {
+  color: #4A4A4A;
+}
+
+/* Custom button styles */
+.btn-primary {
+  @apply bg-blue-primary hover:bg-teal-600 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg;
+}
+
+.btn-secondary {
+  @apply bg-orange-primary hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg;
+}
+
+/* Card styles */
+.card-dashed {
+  border: 2px dashed #FF6B00;
+  border-radius: 20px;
+  background: white;
+  box-shadow: 0 8px 25px rgba(255, 107, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card-dashed:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(255, 107, 0, 0.2);
+}
+
+/* Scrapbook style elements */
+.scrapbook-element {
+  position: relative;
+  transform: rotate(-2deg);
+  transition: transform 0.3s ease;
+}
+
+.scrapbook-element:hover {
+  transform: rotate(0deg) scale(1.05);
+}
+
+.scrapbook-element:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.scrapbook-element:nth-child(even):hover {
+  transform: rotate(0deg) scale(1.05);
+}
+
+/* Animated elements */
+@keyframes bounce-gentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+.animate-bounce-gentle {
+  animation: bounce-gentle 2s infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle 1s ease-in-out infinite;
+}
+
+/* Decorative elements */
+.star-decoration {
+  position: absolute;
+  color: #FFD700;
+  font-size: 2rem;
+  animation: bounce-gentle 3s infinite;
+}
+
+.star-decoration:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.star-decoration:nth-child(3) {
+  animation-delay: 1s;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFF4D4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FF6B00;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e55a00;
+}
+
+/* Selection */
+::selection {
+  background: #FF6B00;
+  color: white;
+}
+
+/* Optimized Testimonial Cards - Focus on Images */
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.testimonial-image-container {
+  flex-grow: 1;
+  min-height: 220px;
+}
+
+.testimonial-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.testimonial-content {
+  padding: 20px;
+  position: relative;
+  background-color: #FFFFFF;
+  flex-shrink: 0;
+}
+
+.testimonial-content::before {
+  content: '"';
+  font-family: 'Georgia', serif;
+  font-size: 60px;
+  color: #FF6B00;
+  opacity: 0.2;
+  position: absolute;
+  top: -10px;
+  left: 15px;
+}
+
+.testimonial-text {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  color: #4A4A4A;
+  font-style: italic;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.testimonial-author {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  color: #FF6B00;
+  text-align: right;
+  font-size: 0.9rem;
+}
+
+/* Container para posicionar a pílula no topo */
+.urgency-pill-container {
+  position: fixed; /* Fixo na tela */
+  top: 20px;       /* Distância do topo */
+  left: 50%;
+  transform: translateX(-50%); /* Centraliza horizontalmente */
+  z-index: 9999;   /* Garante que fique acima de tudo */
+  pointer-events: none; /* Permite cliques através do container */
+  width: calc(100% - 40px); /* Largura responsiva com margem */
+  max-width: 400px; /* Largura máxima */
+}
+
+/* Estilo da Pílula de Urgência */
+.urgency-pill {
+  pointer-events: auto; /* Habilita cliques na pílula, se necessário */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 25px;
+  
+  /* Design e Cores */
+  background-color: #FF6B00; /* Cor laranja principal do seu site */
+  color: #FFFFFF;
+  font-family: 'Nunito', sans-serif; /* Manter consistência da fonte */
+  font-size: 15px;
+  font-weight: 500;
+  
+  /* Formato de Pílula */
+  border-radius: 50px;
+  
+  /* Sombra e Alinhamento */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  gap: 10px; /* Espaçamento entre os ícones e o texto */
+
+  /* Animação de Pulsação */
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.urgency-pill strong {
+  font-weight: 800; /* Deixa o número em destaque */
+}
+
+/* Animação de Pulsação */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+  }
+  50% {
+    transform: scale(1.05); /* Aumenta ligeiramente de tamanho */
+    box-shadow: 0 6px 25px rgba(255, 107, 0, 0.5); /* Intensifica a sombra/brilho */
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
+  }
+}
+
+/* Ajuste para telas pequenas (Mobile) */
+@media (max-width: 768px) {
+  .urgency-pill-container {
+    top: 10px;
+    width: calc(100% - 20px);
+  }
+  
+  .urgency-pill {
+    font-size: 13px;
+    padding: 8px 20px;
+    gap: 8px;
+    text-align: center;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* Ajuste para telas muito pequenas */
+@media (max-width: 480px) {
+  .urgency-pill {
+    font-size: 12px;
+    padding: 6px 15px;
+    gap: 6px;
+  }
+  
+  .urgency-pill-container {
+    width: calc(100% - 16px);
+  }
+}
+/* Estilo da Nova Secção de Preço - Âncora de Valor */
+.pricing-section-value-anchor {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #ffffff 0%, #FFF4D4 100%);
+}
+
+.pricing-grid {
+  display: flex;
+  align-items: stretch; /* Alinha os cartões verticalmente */
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.price-card {
+  background: #fff;
+  border: 2px dashed #FFDDC1; /* Borda tracejada suave */
+  border-radius: 25px;
+  padding: 40px 30px;
+  text-align: center;
+  width: 100%;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(255, 107, 0, 0.1);
+}
+
+.price-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(255, 107, 0, 0.2);
+}
+
+.price-card.featured {
+  border: 3px solid #FF6B00; /* Borda sólida e forte */
+  transform: scale(1.08); /* Um pouco maior para se destacar */
+  background: linear-gradient(135deg, #ffffff 0%, #FFF4D4 100%);
+  box-shadow: 0 20px 40px rgba(255, 107, 0, 0.25);
+}
+
+.price-card.featured:hover {
+  transform: scale(1.08) translateY(-8px);
+  box-shadow: 0 25px 50px rgba(255, 107, 0, 0.35);
+}
+
+.featured-badge {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #FF6B00 0%, #e55a00 100%);
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.plan-title { 
+  font-size: 2rem; 
+  color: #FF6B00; 
+  font-family: 'Fredoka One', cursive;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.plan-description { 
+  font-size: 1.1rem; 
+  color: #4A4A4A; 
+  margin-bottom: 25px; 
+  font-family: 'Nunito', sans-serif;
+  line-height: 1.5;
+}
+
+.price-list-wrapper { 
+  text-align: left; 
+  margin-bottom: 30px; 
+  flex-grow: 1;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 25px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 107, 0, 0.1);
+}
+
+.price-list-wrapper.minimal {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.price-list-wrapper ul { 
+  list-style: none; 
+  padding: 0; 
+  margin: 0;
+}
+
+.price-list-wrapper li { 
+  margin-bottom: 12px; 
+  font-size: 1rem; 
+  color: #4A4A4A; 
+  font-family: 'Nunito', sans-serif;
+  line-height: 1.6;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.price-list-wrapper li:last-child {
+  margin-bottom: 0;
+}
+
+.check-icon, .fire-icon, .gift-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.fire-icon {
+  animation: wiggle 1s ease-in-out infinite;
+}
+
+.gift-icon {
+  animation: bounce-gentle 2s infinite;
+}
+
+.list-header { 
+  font-weight: 700; 
+  color: #FF6B00; 
+  margin-bottom: 20px; 
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.price-box { 
+  margin-bottom: 25px; 
+  background: rgba(0, 166, 166, 0.1);
+  padding: 20px;
+  border-radius: 15px;
+  border: 2px solid rgba(0, 166, 166, 0.2);
+}
+
+.price-text { 
+  margin: 0 0 5px 0; 
+  color: #4A4A4A; 
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1rem;
+}
+
+.main-price { 
+  font-size: 3rem; 
+  font-weight: 800; 
+  color: #00A6A6; 
+  margin: 0; 
+  font-family: 'Fredoka One', cursive;
+  text-shadow: 2px 2px 4px rgba(0, 166, 166, 0.2);
+}
+
+.price-card.featured .main-price { 
+  color: #00A6A6; 
+  font-size: 3.2rem;
+}
+
+.price-card:not(.featured) .main-price { 
+  color: #FF6B00; 
+  font-size: 2.8rem;
+}
+
+.cta-button {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  padding: 18px 30px;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  width: 100%;
+}
+
+.cta-button.primary {
+  background: linear-gradient(135deg, #00A6A6 0%, #008080 100%);
+  color: white;
+  animation: wiggle 2s ease-in-out infinite;
+}
+
+.cta-button.primary:hover {
+  background: linear-gradient(135deg, #008080 0%, #006666 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(0, 166, 166, 0.4);
+}
+
+.cta-button.secondary {
+  background: linear-gradient(135deg, #FF6B00 0%, #e55a00 100%);
+  color: white;
+}
+
+.cta-button.secondary:hover {
+  background: linear-gradient(135deg, #e55a00 0%, #cc4f00 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 35px rgba(255, 107, 0, 0.4);
+}
+
+.guarantee-footer { 
+  text-align: center; 
+  margin-top: 40px; 
+  color: #4A4A4A; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  gap: 15px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 107, 0, 0.1);
+}
+
+.guarantee-footer img { 
+  height: 40px; 
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+}
+
+/* Responsividade para a nova seção de preços */
+@media (max-width: 768px) {
+  .pricing-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .price-card.featured {
+    transform: scale(1.02);
+    order: -1;
+  }
+  
+  .price-card.featured:hover {
+    transform: scale(1.02) translateY(-5px);
+  }
+  
+  .main-price {
+    font-size: 2.5rem;
+  }
+  
+  .price-card.featured .main-price {
+    font-size: 2.7rem;
+  }
+  
+  .price-card:not(.featured) .main-price {
+    font-size: 2.3rem;
+  }
+  
+  .plan-title {
+    font-size: 1.8rem;
+  }
+  
+  .cta-button {
+    font-size: 1rem;
+    padding: 16px 25px;
+  }
+  
+  .guarantee-footer {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
