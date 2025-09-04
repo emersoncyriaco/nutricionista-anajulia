@@ -68,7 +68,7 @@ export const PricingSection: React.FC = () => {
                 <p className="main-price">R$ 27,90</p>
               </div>
               <a 
-                href="https://go.pepperpay.com.br/3rzb1"
+                href="https://nutrianajulia.shop/planocompleto"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cta-button primary block text-center no-underline"
@@ -129,7 +129,7 @@ export const PricingSection: React.FC = () => {
               
               <p className="text-gray-primary font-nunito mb-6 leading-relaxed">
                 Só agora, libere o Pacote Completo com todos os 7 bónus por um preço que não vai ver de novo. 
-                Leve tudo, não por R$ 27,90, mas por apenas...
+                Leve tudo, não por R$ , mas por apenas...
               </p>
               
               <div className="text-3xl font-fredoka font-bold text-blue-primary mb-6">
