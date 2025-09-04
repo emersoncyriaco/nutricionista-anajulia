@@ -181,14 +181,14 @@ export const PricingSection: React.FC = () => {
               </div>
               
               <button 
-                onClick={() => window.open('https://go.pepperpay.com.br/xpub0', '_blank')}
+                onClick={() => window.open('https://nutrianajulia.shop/oferta2/', '_blank')}
                 className="btn-primary w-full text-lg mb-4 animate-wiggle"
               >
                 OK, AGORA EU QUERO!
               </button>
               
               <button 
-                onClick={() => window.open('https://go.pepperpay.com.br/rzkxo', '_blank')}
+                onClick={() => window.open('https://nutrianajulia.shop/oferta3', '_blank')}
                 className="text-gray-500 underline text-sm font-nunito hover:text-gray-700"
               >
                 Não, quero mesmo só o guia por R$ 14,90.
